@@ -16,9 +16,9 @@ title                    : "Ramon Chaves"
 title_separator          : "-"
 name                     : &name "Ramon Miranda Chaves"
 description              : &description "Ramon Miranda Chaves - project manager and PhD candidate (PESC/COPPE/UFRJ) working on digital government, smart cities and human-AI cooperation."
-url                      : https://SEU-USUARIO.github.io # TROQUE: "https://[seu usuario GitHub].github.io"
+url                      : https://ramoncm.github.io/ # TROQUE: "https://[seu usuario GitHub].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog" (deixe vazio para um site USUARIO.github.io)
-repository               : "SEU-USUARIO/SEU-USUARIO.github.io" # TROQUE: "usuario/usuario.github.io"
+repository               : "ramoncm.github.io" # TROQUE: "usuario/usuario.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
