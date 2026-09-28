@@ -16,7 +16,38 @@
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
-<link rel="icon" href="/images/favicon.ico"/>
+<link rel="icon" href="{{ base_path }}/images/favicon.ico"/>
 <meta name="theme-color" content="var(--global-bg-color)"/>
+
+<!-- Idiomas (PT/EN): links hreflang para buscadores e preferencia de idioma lembrada no navegador -->
+{% assign lang = page.lang | default: 'en' %}
+{% if page.translation %}
+  {% if lang == 'pt' %}
+<link rel="alternate" hreflang="pt-BR" href="{{ base_path }}{{ page.url }}"/>
+<link rel="alternate" hreflang="en" href="{{ base_path }}{{ page.translation }}"/>
+<link rel="alternate" hreflang="x-default" href="{{ base_path }}{{ page.translation }}"/>
+  {% else %}
+<link rel="alternate" hreflang="en" href="{{ base_path }}{{ page.url }}"/>
+<link rel="alternate" hreflang="pt-BR" href="{{ base_path }}{{ page.translation }}"/>
+<link rel="alternate" hreflang="x-default" href="{{ base_path }}{{ page.url }}"/>
+  {% endif %}
+{% endif %}
+<script>
+  // Se o visitante ja escolheu um idioma (botao PT/EN no menu), a pagina inicial abre nesse idioma.
+  // So age nas duas paginas iniciais ("/" e "/pt/"); as demais paginas nunca sao redirecionadas.
+  (function () {
+    try {
+      var pref = localStorage.getItem('site-lang');
+      if (!pref) { return; }
+      var base = '{{ site.baseurl }}';
+      var path = window.location.pathname.replace(/index\.html$/, '');
+      if (pref === 'pt' && path === base + '/') {
+        window.location.replace(base + '/pt/');
+      } else if (pref === 'en' && path === base + '/pt/') {
+        window.location.replace(base + '/');
+      }
+    } catch (e) {}
+  })();
+</script>
 
 <!-- end custom head snippets -->
