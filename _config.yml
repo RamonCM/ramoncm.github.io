@@ -3,46 +3,50 @@
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve -l -H localhost`. If you change this file, please restart the 
+# `jekyll serve -l -H localhost`. If you change this file, please restart the
 # server process.
+#
+# >>> Arquivo gerado para o site pessoal de Ramon Miranda Chaves (PT/EN).
+# >>> Campos marcados com "TROQUE" precisam ser ajustados antes de publicar.
 
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "RamonChaves / Site Title"
+title                    : "Ramon Chaves"
 title_separator          : "-"
-name                     : &name "Ramon"
-description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://ramoncm.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+name                     : &name "Ramon Miranda Chaves"
+description              : &description "Ramon Miranda Chaves - project manager and PhD candidate (PESC/COPPE/UFRJ) working on digital government, smart cities and human-AI cooperation."
+url                      : https://SEU-USUARIO.github.io # TROQUE: "https://[seu usuario GitHub].github.io"
+baseurl                  : "" # the subpath of your site, e.g. "/blog" (deixe vazio para um site USUARIO.github.io)
+repository               : "SEU-USUARIO/SEU-USUARIO.github.io" # TROQUE: "usuario/usuario.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  avatar           : "profile.png"   # coloque sua foto em images/profile.png
+  name             : "Ramon Miranda Chaves"
+  pronouns         : # example: "she/her"
+  bio              : "Project manager and PhD candidate at PESC/COPPE/UFRJ. Digital government, smart cities and human-AI cooperation."
+  bio_pt           : "Gerente de projetos e doutorando no PESC/COPPE/UFRJ. Governo digital, cidades inteligentes e cooperação humano-IA."
+  location         : "Rio de Janeiro, Brazil"
+  location_pt      : "Rio de Janeiro, Brasil"
+  employer         : "PESC/COPPE/UFRJ · Lemobs"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "ramon.mchaves@gmail.com"
 
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=idP7OdMAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : "https://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/0009-0007-8990-4557" # CONFIRME: ORCID encontrado no registro publico com afiliacoes Lemobs/PESC/PPGI/EBA/UFF
   semantic         : # URL
   ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
+  pubmed           : # URL
+  researchgate     : "https://www.researchgate.net/profile/Ramon_Chaves2"
   scopus           : # URL
   zotero           : # URL
 
@@ -51,13 +55,13 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
-  kaggle           : # Username  
-  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
+  github           : # Username (opcional: seu usuario GitHub)
+  kaggle           : # Username
+  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Username (ex.: "ramonchaves.bsky.social")
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -66,7 +70,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "ramonchaves"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -83,13 +87,17 @@ author:
   zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
+# (title = ingles, title_pt = portugues; usado nas paginas Research / Pesquisa e CV)
 publication_category:
-  books:
-    title: 'Books'
   manuscripts:
-    title: 'Journal Articles'    
+    title: "Journal Articles"
+    title_pt: "Artigos em periódicos"
   conferences:
-    title: 'Conference Papers'
+    title: "Conference Papers"
+    title_pt: "Artigos em conferências"
+  books:
+    title: "Books and Book Chapters"
+    title_pt: "Livros e capítulos de livros"
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
@@ -125,7 +133,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # sem blog por enquanto. Mude para false se criar posts
   path                   : # blank (default) uses feed.xml
 
 
@@ -144,13 +152,17 @@ facebook:
   app_id                 :
   publisher              :
 og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
+og_description           : *description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
+  type                   : Person
+  name                   : *name
   links: # An array of links to social media profiles
+    - "https://www.linkedin.com/in/ramonchaves"
+    - "https://scholar.google.com/citations?user=idP7OdMAAAAJ"
+    - "https://orcid.org/0009-0007-8990-4557"
+    - "https://www.researchgate.net/profile/Ramon_Chaves2"
 
 
 # Analytics
@@ -190,6 +202,7 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - LEIA-ME.md
   - tmp
   - vendor
 keep_files:
@@ -248,13 +261,22 @@ defaults:
       comments: true
       share: true
       related: true
-  # _pages
+  # _pages (ingles por padrao)
   - scope:
       path: ""
       type: pages
     values:
       layout: single
       author_profile: true
+      lang: en
+  # _pages/pt (versoes em portugues)
+  - scope:
+      path: "_pages/pt"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      lang: pt
   # _teaching
   - scope:
       path: ""
@@ -273,6 +295,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      lang: en
   # _portfolio
   - scope:
       path: ""
@@ -302,7 +325,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Sao_Paulo # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
