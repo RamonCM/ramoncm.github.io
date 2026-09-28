@@ -1,33 +1,41 @@
-# The following is the order of the links in the header of the website.
+# Menu do topo do site.
 #
-# Changing the order here will adjust the order and you can also add additional
-# links. Removing a link prevents it from showing in the header, but does not
-# prevent it from being included in the site.
+# "main" e o menu das paginas em ingles; "main_pt" e o menu das paginas em
+# portugues. O arquivo _includes/masthead.html escolhe qual lista mostrar
+# a partir do campo `lang` da pagina.
 #
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
+# Para adicionar uma aba nova (ex.: Science Communication / Portfolio),
+# descomente as linhas abaixo e crie as duas paginas correspondentes em
+# _pages/ e _pages/pt/ (cada uma apontando para a outra em `translation`).
 
 main:
-  - title: "Publications"
-    url: /publications/
+  - title: "About"
+    url: /
 
-  - title: "Talks"
-    url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
-    
   - title: "CV"
     url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
-    
-  - title: "Guide"
-    url: /markdown/
+
+  - title: "Research"
+    url: /research/
+
+  # - title: "Science Communication"
+  #   url: /science-communication/
+
+  # - title: "Portfolio"
+  #   url: /portfolio/
+
+main_pt:
+  - title: "Sobre"
+    url: /pt/
+
+  - title: "CV"
+    url: /pt/cv/
+
+  - title: "Pesquisa"
+    url: /pt/pesquisa/
+
+  # - title: "Divulgação científica"
+  #   url: /pt/divulgacao-cientifica/
+
+  # - title: "Portfólio"
+  #   url: /pt/portfolio/
