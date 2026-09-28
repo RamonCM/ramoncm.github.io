@@ -1,23 +1,54 @@
 {% include base_path %}
+{% comment %}
+  Menu do topo com suporte a dois idiomas.
+  - `page.lang` ("en" ou "pt") escolhe a lista de links (_data/navigation.yml: main / main_pt).
+  - `page.translation` e a URL da mesma pagina no outro idioma; o botao PT/EN aponta para ela.
+  - O botao de tema (sol/lua) e o original do Academic Pages e alterna claro/escuro.
+{% endcomment %}
+{% assign lang = page.lang | default: 'en' %}
+{% if lang == 'pt' %}
+  {% assign nav_links = site.data.navigation.main_pt %}
+  {% assign home_url = '/pt/' %}
+  {% assign alt_url = page.translation | default: '/' %}
+  {% assign alt_lang = 'en' %}
+  {% assign alt_label = 'EN' %}
+  {% assign alt_title = 'Switch to English' %}
+{% else %}
+  {% assign nav_links = site.data.navigation.main %}
+  {% assign home_url = '/' %}
+  {% assign alt_url = page.translation | default: '/pt/' %}
+  {% assign alt_lang = 'pt' %}
+  {% assign alt_label = 'PT' %}
+  {% assign alt_title = 'Mudar para português' %}
+{% endif %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         <button><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == '/' or page.url == '/index.html' %}selected{% endif %}">
-            <a href="{{ base_path }}/">{{ site.title }}</a>
+          <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == home_url or page.url == '/index.html' %}selected{% endif %}">
+            <a href="{{ base_path }}{{ home_url }}">{{ site.title }}</a>
           </li>
-          {% for link in site.data.navigation.main %}
+          {% for link in nav_links %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
+            {% assign is_selected = false %}
+            {% if page.url == link.url %}
+              {% assign is_selected = true %}
+            {% elsif link.url != '/' and link.url != '/pt/' and page.url contains link.url %}
+              {% assign is_selected = true %}
+            {% endif %}
+            <li class="masthead__menu-item {% if is_selected %}selected{% endif %}">
               <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
             </li>
           {% endfor %}
+          <li id="lang-toggle" class="masthead__menu-item persist">
+            <a href="{{ base_path }}{{ alt_url }}" hreflang="{{ alt_lang }}" lang="{{ alt_lang }}" title="{{ alt_title }}" onclick="try{localStorage.setItem('site-lang','{{ alt_lang }}')}catch(e){}"><i class="fa-solid fa-language" aria-hidden="true"></i> {{ alt_label }}</a>
+          </li>
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
